@@ -1,0 +1,18 @@
+{
+  "name": "orient-timing-bench",
+  "version": "1.0.0",
+  "description": "离线定向赛计时裁决台 (offline orienteering race timing adjudication bench)",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}

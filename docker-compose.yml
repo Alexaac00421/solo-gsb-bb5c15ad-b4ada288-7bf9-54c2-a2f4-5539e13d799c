@@ -1,0 +1,20 @@
+services:
+  timing-bench:
+    build: .
+    image: orient-timing-bench:latest
+    container_name: orient-timing-bench
+    ports:
+      # 宿主机端口:容器端口 —— 浏览器访问 http://localhost:8080
+      - "${HOST_PORT:-8080}:8080"
+    environment:
+      # 容器内监听端口（通常无需修改）
+      PORT: "8080"
+      # 数据库文件路径（挂载到卷，持久化）
+      DB_PATH: /app/data/timing.db
+      TZ: Asia/Shanghai
+    volumes:
+      - timing-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  timing-data:
