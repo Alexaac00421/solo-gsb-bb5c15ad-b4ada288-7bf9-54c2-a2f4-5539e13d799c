@@ -1,0 +1,17 @@
+# 一键启动：docker compose up --build
+# 访问：http://localhost:8080
+services:
+  timer:
+    build: .
+    container_name: orienteering-timer
+    ports:
+      - "8080:8080"        # 宿主机端口:容器端口，改左侧即可换端口
+    environment:
+      PORT: 8080           # 容器内监听端口
+      DB_PATH: /app/data/timer.db
+    volumes:
+      - timer-data:/app/data   # SQLite 数据持久化
+    restart: unless-stopped
+
+volumes:
+  timer-data:
